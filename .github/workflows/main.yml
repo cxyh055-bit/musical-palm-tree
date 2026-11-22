@@ -1,0 +1,29 @@
+
+name: Build Labi APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Build Labi Android APK
+        uses: cemcoe/web-to-apk-action@v14
+        with:
+          app_name: "Labi"
+          app_id: "com.labi.dental"
+          build_command: "npm install && npm run build"
+          web_dir: "dist"
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Labi-APK
+          path: app-release.apk
+          if-no-files-found: error
+          
