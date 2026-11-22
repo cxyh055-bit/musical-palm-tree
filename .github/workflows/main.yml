@@ -35,7 +35,7 @@ jobs:
         working-directory: ${{ steps.find.outputs.dir }}
         run: |
           npm install --legacy-peer-deps
-          npm install @capacitor/android@^7.4.3 --legacy-peer-deps
+          npm install @capacitor/android@^7.4.3 react-is --legacy-peer-deps
           npm run build
 
       - name: Create Android project
