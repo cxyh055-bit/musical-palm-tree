@@ -41,6 +41,8 @@ jobs:
       - name: Create Android project
         working-directory: ${{ steps.find.outputs.dir }}
         run: |
+          rm -f capacitor.config.ts
+          echo '{"appId":"com.labi.dental","appName":"Labi","webDir":"dist","android":{"allowMixedContent":false}}' > capacitor.config.json
           npx cap add android
           npx cap sync android
 
