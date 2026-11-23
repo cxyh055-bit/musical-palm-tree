@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Unzip project
-        run: unzip -q -o Labi-Android-Ready.zip -d project
+        run: unzip -q -o Labi-v2.zip -d project
 
       - name: Find project folder
         id: find
